@@ -35,6 +35,7 @@ $(document).ready(function(){
 
 	}
 	var kast = new Kast(options);
+	kast.init();
 	$(".kast-button-record").click(function(){
 		kast.startStopRecording();
 		if (kast.isRecording()){
@@ -45,7 +46,7 @@ $(document).ready(function(){
 	});
 
 	$(".kast-button-save").click(function(){
-		alert("ok");
+		kast.save();
 	});	
 
 });
