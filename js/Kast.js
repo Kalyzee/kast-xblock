@@ -2,13 +2,14 @@ function Kast(options){
 
 	var recording = false;
 
-	var recordWrapper = new RecordWrapper();
+	var recordWrapper = new RecordWrapper(options.videoElement);
 	var viewerWrapper = new ViewerWrapper();
 	var _this = this;
 
 	this.startRecording = function(){
 		if(!recording){
 			recording = true;
+			recordWrapper.startRecording();
 		}
 		else{
 			throw "Video is recording";
@@ -19,6 +20,7 @@ function Kast(options){
 	this.stopRecording = function(){
 		if(recording){
 			recording = false;
+			recordWrapper.stopRecording();
 		}else{
 			throw "Video is recording";
 		}
