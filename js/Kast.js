@@ -6,12 +6,12 @@ function Kast(){
 	var viewerWrapper = new ViewerWrapper();
 
 	this.startRecording = function(){
-
-
+		
+		
 	}
 
 	this.stopRecording = function(){
-
+		
 	}
 
 }
