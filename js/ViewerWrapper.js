@@ -1,23 +1,23 @@
 function ViewerWrapper() {
     var listeners = new KastListener();
-    
+
     var options = {
         id              : null,
         scale           : 1,
         page            : 1,
         canvas_height   : 400,
         canvas_width    : 500,
-        file            : 'fixtures/openedx.pdf' 
+        file            : 'fixtures/openedx.pdf'
     };
-         
+
     var construct = function () {
         var id = Math.random();
         $('.kast-viewer').attr('id', 'kast-' + id);
-        options.id  = 'kast-' + id;
+        options.id = 'kast-' + id;
         render();
     };
-    
-    var render = function(){
+
+    var render = function () {
         PDFJS.getDocument(options.file).then(function (pdf) {
             // Using promise to fetch the page
             pdf.getPage(options.page).then(function (page) {
@@ -41,39 +41,39 @@ function ViewerWrapper() {
             });
         });
     };
-    
-   
-    var fireZoomIn = function(){
-      listeners.fireListeners("onZoomIn", function(callback){
-        callback(options.scale);
-      });
+
+    var fireZoomIn = function () {
+        listeners.fireListeners("onZoomIn", function (callback) {
+            callback(options.scale);
+        });
     };
-    this.onZoomIn = function(callback){
-      listeners.addlisteners("onZoomIn", callback);
+    this.onZoomIn = function (callback) {
+        listeners.addlisteners("onZoomIn", callback);
     };
-    var fireZoomOut = function(){
-      listeners.fireListeners("onZoomOut", function(callback){
-        callback(options.scale);
-      });
+    var fireZoomOut = function () {
+        listeners.fireListeners("onZoomOut", function (callback) {
+            callback(options.scale);
+        });
     };
-    this.onZoomOut = function(callback){
-      listeners.addlisteners("onZoomOut", callback);
+    this.onZoomOut = function (callback) {
+        listeners.addlisteners("onZoomOut", callback);
     };
-    var firePageNext = function(){
-      listeners.fireListeners("onPageNext", function(callback){
-        callback(options.page);
-      });
+    var firePageNext = function () {
+        listeners.fireListeners("onPageNext", function (callback) {
+            callback(options.page);
+        });
     };
-    this.onPageNext = function(callback){
-      listeners.addlisteners("onPageNext", callback);
+    this.onPageNext = function (callback) {
+        listeners.addlisteners("onPageNext", callback);
     };
-    var firePagePrev = function(){
-      listeners.fireListeners("onPagePrev", function(callback){
-        callback(options.page);
-      });
+    var firePagePrev = function () {
+        listeners.fireListeners("onPagePrev", function (callback) {
+            callback(options.page);
+        });
     };
-    this.onPagePrev = function(callback){
-      listeners.addlisteners("onPagePrev", callback);
+    this.onPagePrev = function (callback) {
+        listeners.addlisteners("onPagePrev", callback);
     };
+
     construct();
 }

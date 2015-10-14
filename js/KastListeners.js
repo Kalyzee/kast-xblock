@@ -39,6 +39,7 @@ function KastListener(){
   this.fireListeners = function(eventName, callback){
     for (listener in _listeners[eventName]){
         if (typeof(_listeners[eventName][listener]) === "function" ){
+            console.log(eventName);
             callback(_listeners[eventName][listener]);
         }
     }
