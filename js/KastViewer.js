@@ -25,8 +25,11 @@
         
     
 */
-function KastViewer(){
+function KastViewer(video, chapters){
+    var _chapters = [];
 
-    
-    
+    this.init = function(){
+
+    }
+
 }

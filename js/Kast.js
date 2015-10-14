@@ -101,7 +101,6 @@ function Kast(options){
 
 	this.save = function(){
 		if (options && options.onSave){
-			associate(recordWrapper.getCurrentTime(), 10);
 			options.onSave(_chapters);
 
 		}
