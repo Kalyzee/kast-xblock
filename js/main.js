@@ -44,4 +44,8 @@ $(document).ready(function(){
 		}
 	});
 
+	$(".kast-button-save").click(function(){
+		alert("ok");
+	});	
+
 });
