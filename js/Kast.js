@@ -47,6 +47,7 @@ function Kast(options){
 	var _reverseChapterTime = [];
 
 	var associate = function(time, chapter){
+		var time = Math.round(time);
 		_chapters[time] = chapter;
 		_reverseChapterTime[chapter] = time;
 	}
@@ -100,7 +101,9 @@ function Kast(options){
 
 	this.save = function(){
 		if (options && options.onSave){
+			associate(recordWrapper.getCurrentTime(), 10);
 			options.onSave(_chapters);
+
 		}
 	}
 
