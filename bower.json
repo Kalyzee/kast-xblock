@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "recordrtc": "~5",
-    "viewerjs": "~0.5.9",
-    "jquery-ui": "jquery.ui#~1.11.4"
+    "jquery-ui": "jquery.ui#~1.11.4",
+    "pdfjs": "https://github.com/mozilla/pdf.js/releases/download/v1.1.366/pdfjs-1.1.366-dist.zip"
   }
 }
