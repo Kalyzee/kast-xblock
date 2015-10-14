@@ -54,11 +54,15 @@ function Kast(options){
 
 	this.init = function(){
 		viewerWrapper.onPagePrev(function(page){
-			associate(recordWrapper.getCurrentTime(), page);
+			if(recoding){
+				associate(recordWrapper.getCurrentTime(), page);	
+			}
 		});
 
 		viewerWrapper.onPageNext(function(page){
-			associate(recordWrapper.getCurrentTime(), page);
+			if(recoding){
+				associate(recordWrapper.getCurrentTime(), page);	
+			}
 		});		
 
 
@@ -102,7 +106,7 @@ function Kast(options){
 	this.save = function(){
 		if (options && options.onSave){
 			options.onSave(_chapters);
-
+			recordWrapper.save();
 		}
 	}
 

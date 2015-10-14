@@ -60,13 +60,24 @@ function ViewerWrapper() {
         if(options.page < options.num_pages){
             options.page = options.page+1;
             firePageNext();
+            firePageChange();
             _this.render();
         }
     };
+
+    this.setPage = function(page){
+        if(page <= options.num_pages && page >= 1){
+            options.page = page;
+            firePageChange();
+            _this.render();
+        }
+    };
+
     this.prevPage = function(){
         if(options.page > 1){
             options.page = options.page-1;
             firePagePrev();
+            firePageChange();
             _this.render();
         }
     };
@@ -135,6 +146,17 @@ function ViewerWrapper() {
     this.onPageNext = function (callback) {
         listeners.addlisteners("onPageNext", callback);
     };
+
+    var firePageChange = function () {
+        listeners.fireListeners("onPageChange", function (callback) {
+            callback(options.page);
+        });
+    };
+    this.onPageChange = function (callback) {
+        listeners.addlisteners("onPageChange", callback);
+    };
+
+
     var firePagePrev = function () {
         listeners.fireListeners("onPagePrev", function (callback) {
             callback(options.page);
