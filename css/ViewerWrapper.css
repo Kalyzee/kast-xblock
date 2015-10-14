@@ -8,3 +8,18 @@ and open the template in the editor.
     Author     : agross
 */
 
+body{
+    width: 800px;
+    border: 1px solid black;
+}
+
+.kast-viewer-toolbar{
+    background-color: #FAFAFA;
+}
+.kast-viewer-toolbar ul {
+    list-style: none;
+    clear: both;
+}
+.kast-viewer-toolbar li{
+    display: inline-block;
+}

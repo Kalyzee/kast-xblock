@@ -7,6 +7,7 @@ function ViewerWrapper() {
         id              : null,
         scale           : 1,
         page            : 1,
+        num_pages       : null,
         canvas_height   : 400,
         canvas_width    : 500,
         file            : 'fixtures/openedx.pdf'
@@ -23,36 +24,51 @@ function ViewerWrapper() {
     };
 
     this.refreshToolbar = function(){
-        var btnZoomIn   = $('<li/>').html("+").on("click", function(){
+        var btnZoomIn   = $('<li/>').addClass("mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect").html('<i class="material-icons fa fa-search-plus"></i>').on("click", function(){
             _this.zoomIn();
-        });
-        var btnZoomOut  = $('<li/>').html("-").on("click", function(){
+        }).attr("id", Math.random());
+        var btnZoomInTooltip = $('<li/>').addClass("mdl-tooltip").html("Zoom In").attr("for", btnZoomIn.attr('id'));
+        
+        var btnZoomOut  = $('<li/>').addClass("mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect").html('<i class="material-icons fa fa-search-minus"></i>').on("click", function(){
             _this.zoomOut();
-        });
-        var btnPageNext = $('<li/>').html(">").on("click", function(){
+        }).attr("id", Math.random());        
+        var btnZoomOutTooltip = $('<li/>').addClass("mdl-tooltip").html("Zoom out").attr("for", btnZoomOut.attr('id'));
+
+        var btnPageNext = $('<li/>').addClass("mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect").html('<i class="material-icons fa fa-forward"></i>').on("click", function(){
             _this.nextPage();
-        });
-        var btnPagePrev = $('<li/>').html("<").on("click", function(){
+        }).attr("id", Math.random());
+        var btnPageNextTooltip = $('<li/>').addClass("mdl-tooltip").html("Next page").attr("for", btnPageNext.attr('id'));
+
+        var btnPagePrev = $('<li/>').addClass("mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect").html('<i class="material-icons fa fa-backward"></i>').on("click", function(){
             _this.prevPage();
-        });
+        }).attr("id", Math.random());
+        var btnPagePrevTooltip = $('<li/>').addClass("mdl-tooltip").html("Previous page").attr("for", btnPagePrev.attr('id'));
         
         var ul_content  = $('<ul/>')
-                .append(btnPageNext)
                 .append(btnPagePrev)
+                .append(btnPagePrevTooltip)
+                .append(btnPageNext)
+                .append(btnPageNextTooltip)
                 .append(btnZoomIn)
-                .append(btnZoomOut);
+                .append(btnZoomInTooltip)
+                .append(btnZoomOut)
+                .append(btnZoomOutTooltip);
         _elm.find('.kast-viewer-toolbar').append(ul_content);
     };
     
     this.nextPage = function(){
-        options.page = options.page+1;
-        firePageNext();
-        _this.render();
+        if(options.page < options.num_pages){
+            options.page = options.page+1;
+            firePageNext();
+            _this.render();
+        }
     };
     this.prevPage = function(){
-        options.page = options.page-1;
-        firePagePrev();
-        _this.render();
+        if(options.page > 1){
+            options.page = options.page-1;
+            firePagePrev();
+            _this.render();
+        }
     };
     this.zoomIn = function(){
         options.scale = options.scale+.1;
@@ -70,7 +86,9 @@ function ViewerWrapper() {
         PDFJS.getDocument(options.file).then(function (pdf) {
             // Using promise to fetch the page
             pdf.getPage(options.page).then(function (page) {
-                var scale       = options.scale;
+                var scale           = options.scale;
+                options.num_pages   = pdf.numPages;
+                
                 var viewport    = page.getViewport(scale);
                 //
                 // Prepare canvas using PDF page dimensions
