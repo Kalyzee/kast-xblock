@@ -7,6 +7,7 @@ function Kast(){
 
 	this.startRecording = function(){
 
+
 	}
 
 	this.stopRecording = function(){
