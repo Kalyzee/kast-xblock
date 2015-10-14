@@ -72,10 +72,13 @@ function RecordWrapper(videoElement){
 			videoElement.mozSrcObject = null;
 	        var recordedBlob = recordRTC.getBlob();
 	        recordRTC.getDataURL(function(dataURL) { });
-	        recordRTC = null;
 	        _stream.stop();
 	        _stream = null;
 	    });
+	}
+
+	this.save = function(){
+		recordRTC.save();
 	}
 
 }

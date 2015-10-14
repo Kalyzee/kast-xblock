@@ -25,11 +25,55 @@
         
     
 */
-function KastViewer(video, chapters){
+function KastViewer(element, video, chapters){
+    var _timecodedEventsBegin = [];
+    var _timecodedEventsEnd = [];
+
+    var _lastTime = -1;
+
     var _chapters = [];
 
-    this.init = function(){
+    _chapters[0] = 1;
+    _chapters[5] = 2;
+    _chapters[10] = 3;
 
+    var _reverseChapterTime = [];
+    _reverseChapterTime[1] = 0;
+    _reverseChapterTime[2] = 5;
+    _reverseChapterTime[3] = 10;
+
+    var _viewerWrapper = new ViewerWrapper();
+
+    var _this = this; 
+
+    this.goToPage = function(page){
+        if (_reverseChapterTime[page]){
+            element.currentTime = _reverseChapterTime[page];
+        }
     }
+
+
+    var onTime = function(time){
+        var time = Math.round(time);
+        if(_lastTime != time){
+            console.log("we are here ! "+ time);
+            if(_chapters[time]){
+                _viewerWrapper.setPage(_chapters[time]);
+            }  
+            _lastTime = time;    
+        }
+    }
+
+
+
+    this.init = function(){
+        _viewerWrapper.onPageNext(_this.goToPage);
+        _viewerWrapper.onPagePrev(_this.goToPage);
+        element.ontimeupdate = function(){
+            onTime(element.currentTime);
+        };
+    }
+
+
 
 }
