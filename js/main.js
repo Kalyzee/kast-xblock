@@ -1,6 +1,9 @@
 $(document).ready(function(){
 
-	var kast = new Kast();
+	var options = {
+		videoElement : $("video")[0]
+	}
+	var kast = new Kast(options);
 	$(".kast-button-record").click(function(){
 		kast.startStopRecording();
 		if (kast.isRecording()){
