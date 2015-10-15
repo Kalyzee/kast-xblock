@@ -29,7 +29,7 @@
 function KastEditorBlock(runtime, element, init_args) {
 
     var _this = this;
-
+    
 
 	var options = {
 		videoElement : $("video")[0],

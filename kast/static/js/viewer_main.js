@@ -29,7 +29,6 @@
 function KastViewerBlock(runtime, element, init_args) {
     var _this = this;
 
-    
     var chapters = [];
     chapters[0] = 1;
     chapters[5] = 2;
