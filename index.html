@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Kast by Kalyzee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Kast</h1>
+      <h2 class="project-tagline">Create your video directly from OpenedX</h2>
+      <a href="https://github.com/Kalyzee/kast" class="btn">View on GitHub</a>
+      <a href="https://github.com/Kalyzee/kast/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Kalyzee/kast/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="kast-your-mooc" class="anchor" href="#kast-your-mooc" aria-hidden="true"><span class="octicon octicon-link"></span></a>KAST (your Mooc)</h1>
+
+<h1>
+<a id="what-is-it" class="anchor" href="#what-is-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is it?</h1>
+
+<p>The Kast xblock is a powerfull and easy to use module for your OpenedX architecture. It allows professors to  record their webcam and PDF directly from the studio.
+You want to reinvent way to create and consume your Mooc video? Sure you will love our xblock. Students will have not one but two sections, one with professor's cam and one with PDF. The PDF is automatically synchronized but students can choose to change the current page of PDF and go back or forward.
+This new way to present courses will transform your courses and help you to be more innovative !</p>
+
+<h1>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h1>
+
+<p>If you want to install Kast module, please refers to the "Installation Section" at the bottom. For the users documentation try the module first, we make it so easy that you will not need it.</p>
+
+<h1>
+<a id="story" class="anchor" href="#story" aria-hidden="true"><span class="octicon octicon-link"></span></a>Story</h1>
+
+<p>With the second prize for their Knotes module in the first french OpenedX Hackathon, the Kalyzee team wanted their revenge at the regular OpenedX Hackathon in Boston. Came with the project to improve their first project, they decided to switch on an awesome and crazy project in the last minutes : creating a video directly from OpenedX Studio.
+A really big idea (and challenge) that activated the Xtrem Programming mode of these crazy developpers !
+Thirsty of efficient coding lines, they have done their best to produce this amazing module, and change the way we perceive what is a Mooc !</p>
+
+<h1>
+<a id="authors" class="anchor" href="#authors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors</h1>
+
+<p>Ludovic Bougerra and Anthony Gross for the development, Guillaume LAURIE for communication.
+All sponsored by the Massilia's EDTech startup Kalyzée.</p>
+
+<h1>
+<a id="licensing" class="anchor" href="#licensing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Licensing</h1>
+
+<p>Please see the file called LICENSE.</p>
+
+<h1>
+<a id="contacts" class="anchor" href="#contacts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contacts</h1>
+
+<p>If you want to be informed about new modules or new hackathon participation
+        please register to our newsletter.</p>
+
+<p>If you need help for an installation, feel free to contact our support :
+        <a href="mailto:contact@kalyzee.com">contact@kalyzee.com</a></p>
+
+<h2>
+<a id="want-to-follow-us-on-twitter" class="anchor" href="#want-to-follow-us-on-twitter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Want to follow us on Twitter?</h2>
+
+<p>Kalyzee </p>
+
+<pre><code>@Kalyzee
+</code></pre>
+
+<p>Ludovic Bouguerra</p>
+
+<pre><code>@LBouguerra
+</code></pre>
+
+<p>Anthony Gross</p>
+
+<pre><code>@AnthonyKGROSS
+</code></pre>
+
+<p>Guillaume LAURIE</p>
+
+<pre><code>@GuillaumeLAURIE
+</code></pre>
+
+<h1>
+<a id="installation-guide" class="anchor" href="#installation-guide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation guide</h1>
+
+<p>Connect you to your VM with:</p>
+
+<pre><code>vagrant ssh.
+</code></pre>
+
+<p>Connect you with edxapp user</p>
+
+<pre><code>sudo su edxapp
+</code></pre>
+
+<p>Create an apps directory in /edx/app/edxapp to store the Kast app</p>
+
+<ul>
+<li>In /edx/app/edxapp with edxapp user create a directory my-apps</li>
+</ul>
+
+<pre><code> cd /edx/app/edxapp
+ mkdir my-apps
+ cd my-apps
+</code></pre>
+
+<p>Clone the Kast github repository in /edx/app/edxapp/my-apps</p>
+
+<pre><code>git clone https://github.com/Kalyzee/kast.git
+</code></pre>
+
+<p>Activate the openedx venv and install Kast</p>
+
+<pre><code>source /edx/app/edxapp/venvs/edxapp/bin/activate
+cd kast
+pip install -r requirements.txt
+</code></pre>
+
+<p>Restart your edX</p>
+
+<pre><code> cd /edx/app/edxapp/edx-platform
+ paver devstack --fast studio
+</code></pre>
+
+<h2>
+<a id="enabling-in-studio" class="anchor" href="#enabling-in-studio" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enabling in Studio</h2>
+
+<p>Login </p>
+
+<p>To enable Kast into your course you have to:</p>
+
+<ul>
+<li>On a studio course main page go to Setting &gt; Advanced Settings.</li>
+</ul>
+
+<p><img src="http://www.kalyzee.com/wp-content/uploads/2015/09/edx-advanced-setting-enabling-knotes.png" alt=""></p>
+
+<ul>
+<li>Into the advanced module part, add "kast" into the array.</li>
+</ul>
+
+<p><img src="http://www.kalyzee.com/wp-content/uploads/2015/09/edx-advanced-setting-enabling-knotes-in-form.png" alt=""></p>
+
+<ul>
+<li>Click on "Save changes"</li>
+</ul>
+
+<p><img src="http://www.kalyzee.com/wp-content/uploads/2015/09/edx-knotes-visual-feedback-installation.png" alt=""></p>
+
+<h2>
+<a id="using-kast" class="anchor" href="#using-kast" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Kast</h2>
+
+<p>In a unit: </p>
+
+<p><img src="http://www.kalyzee.com/wp-content/uploads/2015/09/edx-knotes-usage-plugin-selection.png" alt=""></p>
+
+<p>Click on the advanced button in add new component.</p>
+
+<p><img src="http://www.kalyzee.com/wp-content/uploads/2015/09/edx-knotes-selection-unit.png" alt=""></p>
+
+<p>Click on kast</p>
+
+<p><img src="http://www.kalyzee.com/wp-content/uploads/2015/09/edx-knotes-preview.png" alt=""></p>
+
+<p>Your Kast is fully loaded you can change your video by cliking on edit button on the top right of the previous picture.</p>
+
+<p><img src="http://www.kalyzee.com/wp-content/uploads/2015/09/edx-knotes-select-video-url.png" alt=""></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Kalyzee/kast">Kast</a> is maintained by <a href="https://github.com/Kalyzee">Kalyzee</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-42375519-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
