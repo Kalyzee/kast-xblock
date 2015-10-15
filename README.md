@@ -38,22 +38,22 @@ If you need help for an installation, feel free to contact our support :
 
 ##  Want to follow us on Twitter?
 
-        Kalyzee             : 
-        ```
-        @Kalyzee
-        ```
-        Ludovic Bouguerra   : 
-        ```
-        @LBouguerra
-        ```
-        Anthony Gross       : 
-        ```
-        @AnthonyKGROSS
-        ```
-        Guillaume LAURIE    : 
-        ```
-        @GuillaumeLAURIE
-        ```
+Kalyzee             : 
+```
+@Kalyzee
+```
+Ludovic Bouguerra   : 
+```
+@LBouguerra
+```
+Anthony Gross       : 
+```
+@AnthonyKGROSS
+```
+Guillaume LAURIE    : 
+```
+@GuillaumeLAURIE
+```
         
 # Installation guide (Knotes install)
 
