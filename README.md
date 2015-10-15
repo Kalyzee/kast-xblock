@@ -38,19 +38,19 @@ If you need help for an installation, feel free to contact our support :
 
 ##  Want to follow us on Twitter?
 
-Kalyzee             : 
+Kalyzee 
 ```
 @Kalyzee
 ```
-Ludovic Bouguerra   : 
+Ludovic Bouguerra
 ```
 @LBouguerra
 ```
-Anthony Gross       : 
+Anthony Gross
 ```
 @AnthonyKGROSS
 ```
-Guillaume LAURIE    : 
+Guillaume LAURIE
 ```
 @GuillaumeLAURIE
 ```
