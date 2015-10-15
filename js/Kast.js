@@ -54,13 +54,13 @@ function Kast(options){
 
 	this.init = function(){
 		viewerWrapper.onPagePrev(function(page){
-			if(recoding){
+			if(recording){
 				associate(recordWrapper.getCurrentTime(), page);	
 			}
 		});
 
 		viewerWrapper.onPageNext(function(page){
-			if(recoding){
+			if(recording){
 				associate(recordWrapper.getCurrentTime(), page);	
 			}
 		});		

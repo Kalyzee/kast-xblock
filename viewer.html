@@ -3,14 +3,19 @@
         <title>Kast</title>
         <link rel=StyleSheet href="css/RecordWrapper.css" type="text/css" />
         <link rel=StyleSheet href="css/ViewerWrapper.css" type="text/css" />
+        <link rel=StyleSheet href="libs/material-design-lite/material.min.css" type="text/css" />
+        <link rel=StyleSheet href="libs/font-awesome/css/font-awesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">        
     </head>
     <body>
         <div class="kast">
-            <div class="kast-recorder"><video src="fixtures/out.webm" controls="" class="kast-video-player"></video></div>
+            <div class="kast-recorder"><video controls="" class="kast-video-player" src="fixtures/out.webm"></video></div>
             <div class="kast-viewer">
                 <div class="kast-viewer-toolbar"></div>
                 <canvas></canvas>
             </div>
+
+
         </div>
 
 
@@ -28,7 +33,11 @@
 
         <script language="javascript">
             $(document).ready(function(){
-                var viewer = new KastViewer($("video")[0]);
+                var chapters = [];
+                chapters[0] = 1;
+                chapters[5] = 2;
+
+                var viewer = new KastViewer($("video")[0], chapters);
                 viewer.init();
 
             });

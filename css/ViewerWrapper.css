@@ -9,8 +9,7 @@ and open the template in the editor.
 */
 
 body{
-    width: 800px !important;
-    border: 1px solid black;
+
 }
 
 .kast .kast-recorder, .kast .kast-viewer{
@@ -18,8 +17,7 @@ body{
 }
 
 .kast .kast-recorder video{
-    height: 188px;
-    width: 240px;
+
 }
 
 .kast .kast-viewer canvas{

@@ -25,23 +25,20 @@
         
     
 */
-function KastViewer(element, video, chapters){
+function KastViewer(element, chapters){
     var _timecodedEventsBegin = [];
     var _timecodedEventsEnd = [];
 
     var _lastTime = -1;
 
-    var _chapters = [];
+    var _chapters = chapters;
     
     var _seekLock = false;
 
-    _chapters[0] = 1;
-    _chapters[5] = 2;
 
     var _reverseChapterTime = [];
     _reverseChapterTime[1] = 0;
     _reverseChapterTime[2] = 5;
-    _reverseChapterTime[3] = 10;
 
     var _viewerWrapper = new ViewerWrapper();
 

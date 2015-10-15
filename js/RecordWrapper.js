@@ -34,11 +34,8 @@ function RecordWrapper(videoElement){
 	var _mediaConstraints = { video: true, audio: true };
 	var _options = {
       mimeType: 'video/webm', // or video/mp4 or audio/ogg
-      audioBitsPerSecond: 128000,
-      videoBitsPerSecond: 128000,
-      bitsPerSecond: 128000,
-      disableLogs: true,
-	};
+      disableLogs: true
+   	};
 
 	this.startRecording = function(){
 		navigator.mediaDevices.getUserMedia(_mediaConstraints).then(function(stream){
