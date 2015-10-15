@@ -32,10 +32,11 @@ function KastViewer(element, video, chapters){
     var _lastTime = -1;
 
     var _chapters = [];
+    
+    var _seekLock = false;
 
     _chapters[0] = 1;
     _chapters[5] = 2;
-    _chapters[10] = 3;
 
     var _reverseChapterTime = [];
     _reverseChapterTime[1] = 0;
@@ -54,17 +55,36 @@ function KastViewer(element, video, chapters){
 
 
     var onTime = function(time){
-        var time = Math.round(time);
-        if(_lastTime != time){
-            console.log("we are here ! "+ time);
-            if(_chapters[time]){
-                _viewerWrapper.setPage(_chapters[time]);
-            }  
-            _lastTime = time;    
+        if (!_seekLock){
+            var time = Math.round(time);
+            if(_lastTime != time){
+                if(_chapters[time]){
+                    _viewerWrapper.setPage(_chapters[time]);
+                }  
+                _lastTime = time;    
+            }
         }
     }
 
+    var onSeek = function(time){
+        _seekLock = true;
+        var time = Math.round(time);
+        var found = false;
+        while(time >= 0 && !found){
+            if (_chapters[time]){
+                _lastTime = time;
+                found = true;
+                _viewerWrapper.setPage(_chapters[time]);
+                _seekLock = false;
 
+            }
+            time--;
+        }
+
+
+
+        _seekLock = false;
+    }
 
     this.init = function(){
         _viewerWrapper.onPageNext(_this.goToPage);
@@ -72,6 +92,10 @@ function KastViewer(element, video, chapters){
         element.ontimeupdate = function(){
             onTime(element.currentTime);
         };
+
+        element.onseeking = function(){
+            onSeek(element.currentTime);
+        }
     }
 
 

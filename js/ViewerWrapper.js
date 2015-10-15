@@ -66,7 +66,7 @@ function ViewerWrapper() {
     };
 
     this.setPage = function(page){
-        if(page <= options.num_pages && page >= 1){
+        if(page >= 1 && page <= options.num_pages){
             options.page = page;
             firePageChange();
             _this.render();
