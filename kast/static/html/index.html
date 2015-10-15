@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Kast</title>
+        <link rel="StyleSheet" href="../css/RecordWrapper.css" type="text/css" />
+        <link rel="StyleSheet" href="../css/ViewerWrapper.css" type="text/css" />
+        <link rel="StyleSheet" href="../libs/material-design-lite/material.min.css" type="text/css" />
+        <link rel="StyleSheet" href="../libs/font-awesome/css/font-awesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <div class="kast">
+            <div class="kast-recorder"><video controls="" class="kast-video-player" muted=""></video></div>
+            <div class="kast-viewer">
+                <div class="kast-viewer-toolbar"></div>
+                <canvas></canvas>
+            </div>
+            <button class="kast-button-record">Start recording</button>
+            <button class="kast-button-browse">Browse</button>
+            <button class="kast-button-save">Save</button>
+
+        </div>
+        <script src="../libs/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="../libs/material-design-lite/material.min.js" type="text/javascript"></script>
+        <script src="../libs/recordrtc/RecordRTC.min.js" type="text/javascript"></script>
+
+        <!-- In production, only one script (pdf.js) is necessary -->
+        <script src="../libs/pdfjs/web/compatibility.js"></script>
+        <script src="../libs/pdfjs/web/l10n.js"></script>
+        <script src="../libs/pdfjs/build/pdf.js"></script>
+        <script src="../libs/pdfjs/web/debugger.js"></script>
+
+        <script src="../js/KastListeners.js" type="text/javascript"></script>
+        <script src="../js/RecordWrapper.js" type="text/javascript"></script>
+        <script src="../js/ViewerWrapper.js" type="text/javascript"></script>
+        <script src="../js/Kast.js" type="text/javascript"></script>
+        <script src="../js/main.js" type="text/javascript"></script>
+    </body>
+</html>

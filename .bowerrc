@@ -1,4 +1,4 @@
 {
-	"directory": "libs/",
+	"directory": "kast/static/libs/",
 	"allow_root": "true"
 }
