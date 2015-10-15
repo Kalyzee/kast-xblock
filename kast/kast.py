@@ -63,7 +63,7 @@ class KastBlock(XBlock):
         # Load the HTML fragment from within the package and fill in the template
         html_str = pkg_resources.resource_string(__name__, "static/html/kast_viewer.html")
         
-        frag = Fragment(unicode(html_str).format(self=self, video_file=self.video_file, pdf_file=self.pdf_file))
+        frag = Fragment(unicode(html_str).format(self=self, video_file="http://www.kalyzee.com/wp-content/uploads/2015/10/out.webm", pdf_file="http://www.kalyzee.com/wp-content/uploads/2015/10/openedx.pdf"))
 
         css_array = ["static/css/RecordWrapper.css", "static/css/ViewerWrapper.css","static/libs/material-design-lite/material.min.css", "static/libs/font-awesome/css/font-awesome.min.css"]
         
@@ -73,7 +73,7 @@ class KastBlock(XBlock):
 
         javascript_array = ["static/libs/jquery/dist/jquery.min.js", "static/libs/material-design-lite/material.min.js", "static/libs/pdfjs/web/compatibility.js", "static/libs/pdfjs/web/l10n.js",
         "static/libs/pdfjs/build/pdf.js", "static/js/KastListeners.js", "static/js/ViewerWrapper.js",
-        "static/js/KastViewer.js"]
+        "static/js/KastViewer.js", "static/js/viewer_main.js"]
 
         for element in javascript_array:
             js_str = pkg_resources.resource_string(__name__, element)

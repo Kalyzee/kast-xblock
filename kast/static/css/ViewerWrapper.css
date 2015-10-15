@@ -8,10 +8,6 @@ and open the template in the editor.
     Author     : agross
 */
 
-body{
-    width: 800px !important;
-    border:1px solid black;
-}
 
 .kast{
     background-color: #FAFAFA;
