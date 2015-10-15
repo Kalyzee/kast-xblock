@@ -13,7 +13,7 @@ function ViewerWrapper() {
         num_pages       : null,
         canvas_height   : height,
         canvas_width    : width,
-        file            : 'http://www.kalyzee.com/wp-content/uploads/2015/10/openedx.pdf'
+        file            : 'http://cdn.kalyzee.com/openedx.pdf'
     };
 
     var construct = function () {

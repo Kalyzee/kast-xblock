@@ -64,7 +64,7 @@ class KastBlock(XBlock):
         # Load the HTML fragment from within the package and fill in the template
         html_str = pkg_resources.resource_string(__name__, "static/html/kast_viewer.html")
         
-        frag = Fragment(unicode(html_str).format(self=self, video_file="http://www.kalyzee.com/wp-content/uploads/2015/10/out.webm", pdf_file="http://www.kalyzee.com/wp-content/uploads/2015/10/openedx.pdf"))
+        frag = Fragment(unicode(html_str).format(self=self, video_file="http://cdn.kalyzee.com/out.webm", pdf_file="http://cdn.kalyzee.com/openedx.pdf"))
 
         css_array = ["static/css/RecordWrapper.css", "static/css/ViewerWrapper.css","static/libs/material-design-lite/material.min.css"]
         
@@ -74,10 +74,16 @@ class KastBlock(XBlock):
 
         frag.add_css_url("https://fonts.googleapis.com/icon?family=Material+Icons")
 
+        frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/build/pdf.js")
+        frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/web/compatibility.js")
+        frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/web/l10n.js")
+        frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/web/debugger.js")
 
-        javascript_array = ["static/libs/material-design-lite/material.min.js", 
-        "static/libs/pdfjs/web/compatibility.js", "static/libs/pdfjs/web/l10n.js",
-        "static/libs/pdfjs/build/pdf.js", "static/libs/pdfjs/web/debugger.js", "static/js/KastListeners.js", "static/js/ViewerWrapper.js", "static/js/KastViewer.js", "static/js/viewer_main.js"]
+
+
+        javascript_array = ["static/libs/material-design-lite/material.min.js", "static/js/KastListeners.js", "static/js/ViewerWrapper.js", "static/js/KastViewer.js", "static/js/viewer_main.js"]
+
+
 
         for element in javascript_array:
             js_str = pkg_resources.resource_string(__name__, element)
