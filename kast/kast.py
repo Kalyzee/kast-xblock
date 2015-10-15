@@ -100,7 +100,7 @@ class KastBlock(XBlock):
 
     def studio_view(self, context):
         # Load the HTML fragment from within the package and fill in the template
-        html_str = pkg_resources.resource_string(__name__, "static/html/kast_viewer.html")
+        html_str = pkg_resources.resource_string(__name__, "static/html/kast_editor.html")
         
         frag = Fragment(unicode(html_str).format(self=self, video_file=self.video_file, pdf_file=self.pdf_file))
 
@@ -110,10 +110,18 @@ class KastBlock(XBlock):
             css_str = pkg_resources.resource_string(__name__, element)
             frag.add_css(unicode(css_str, "utf-8"))
 
-        javascript_array = ["static/libs/jquery/dist/jquery.min.js", "static/libs/material-design-lite/material.min.js", 
-        "static/libs/recordrtc/RecordRTC.min.js", "static/libs/pdfjs/web/compatibility.js", "static/libs/pdfjs/web/l10n.js",
-        "static/libs/pdfjs/build/pdf.js", "static/libs/pdfjs/build/pdf.worker.js", "static/libs/pdfjs/web/debugger.js", "static/js/KastListeners.js", "static/js/RecordWrapper.js", "static/js/ViewerWrapper.js",
+        
+        frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/build/pdf.js")
+        frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/web/compatibility.js")
+        frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/web/l10n.js")
+        frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/web/debugger.js")
+        frag.add_javascript_url("http://cdn.webrtc-experiment.com/RecordRTC.js")
+        
+
+        javascript_array = ["static/libs/material-design-lite/material.min.js", 
+        "static/js/KastListeners.js", "static/js/RecordWrapper.js", "static/js/ViewerWrapper.js",
         "static/js/Kast.js", "static/js/main.js"]
+
 
         for element in javascript_array:
             js_str = pkg_resources.resource_string(__name__, element)

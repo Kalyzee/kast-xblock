@@ -27,9 +27,9 @@
 */
 
 function KastEditorBlock(runtime, element, init_args) {
-
+	alert("HELLO");
     var _this = this;
-    
+
 
 	var options = {
 		videoElement : $("video")[0],
@@ -38,9 +38,13 @@ function KastEditorBlock(runtime, element, init_args) {
 		}
 
 	}
+	alert("ok");
+
 	var kast = new Kast(options);
 	kast.init();
+	alert("ok");
 	$(".kast-button-record").click(function(){
+		alert("ok");
 		kast.startStopRecording();
 		if (kast.isRecording()){
 			$(".kast-button-record").html("Stop recording");
