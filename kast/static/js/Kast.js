@@ -30,7 +30,7 @@ function Kast(options){
 	var recording = false;
 
 	var recordWrapper = new RecordWrapper(options.videoElement);
-	var viewerWrapper = new ViewerWrapper();
+	var viewerWrapper = new ViewerWrapper(options.baseElement);
 	var _this = this;
 
 

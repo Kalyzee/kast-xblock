@@ -1,4 +1,4 @@
-function ViewerWrapper() {
+function ViewerWrapper(element) {
     var listeners   = new KastListener();
     var _this       = this;
     var _elm        = null;
@@ -17,7 +17,7 @@ function ViewerWrapper() {
     };
 
     var construct = function () {
-        _elm = $(".kast");
+        _elm = element;
         var id = Math.random();
         _elm.find('canvas').attr('id', 'kast-' + id);
         options.id = 'kast-' + id;

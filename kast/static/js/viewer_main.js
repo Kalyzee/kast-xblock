@@ -33,7 +33,7 @@ function KastViewerBlock(runtime, element, init_args) {
     chapters[0] = 1;
     chapters[5] = 2;
     PDFJS.workerSrc = "http://cdn.kalyzee.com/pdfjs/build/pdf.worker.js";
-    var viewer = new KastViewer($("video")[0], chapters);
+    var viewer = new KastViewer($(element), chapters);
     viewer.init();
 
 }

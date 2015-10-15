@@ -39,8 +39,8 @@ function KastViewer(element, chapters){
     var _reverseChapterTime = [];
     _reverseChapterTime[1] = 0;
     _reverseChapterTime[2] = 5;
+    var _viewerWrapper = new ViewerWrapper(element);
 
-    var _viewerWrapper = new ViewerWrapper();
 
     var _this = this; 
 
