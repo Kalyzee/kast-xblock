@@ -60,12 +60,13 @@ class KastBlock(XBlock):
     data = String(help="data", default="", scope=Scope.content)
 
     def student_view(self, context):
+    
         # Load the HTML fragment from within the package and fill in the template
         html_str = pkg_resources.resource_string(__name__, "static/html/kast_viewer.html")
         
         frag = Fragment(unicode(html_str).format(self=self, video_file="http://www.kalyzee.com/wp-content/uploads/2015/10/out.webm", pdf_file="http://www.kalyzee.com/wp-content/uploads/2015/10/openedx.pdf"))
 
-        css_array = ["static/css/RecordWrapper.css", "static/css/ViewerWrapper.css","static/libs/material-design-lite/material.min.css", "static/libs/font-awesome/css/font-awesome.min.css"]
+        css_array = ["static/css/RecordWrapper.css", "static/css/ViewerWrapper.css","static/libs/material-design-lite/material.min.css"]
         
         for element in css_array:
             css_str = pkg_resources.resource_string(__name__, element)
@@ -94,17 +95,17 @@ class KastBlock(XBlock):
 
     def studio_view(self, context):
         # Load the HTML fragment from within the package and fill in the template
-        html_str = pkg_resources.resource_string(__name__, "static/html/kast_viewer.html")
+        html_str = pkg_resources.resource_string(__name__, "static/html/kast_editor.html")
         
         frag = Fragment(unicode(html_str).format(self=self, video_file=self.video_file, pdf_file=self.pdf_file))
 
-        css_array = ["static/css/RecordWrapper.css", "static/css/ViewerWrapper.css","static/libs/material-design-lite/material.min.css", "static/libs/font-awesome/css/font-awesome.min.css"]
+        css_array = ["static/css/RecordWrapper.css", "static/css/ViewerWrapper.css","static/libs/material-design-lite/material.min.css"]
         
         for element in css_array:
             css_str = pkg_resources.resource_string(__name__, element)
             frag.add_css(unicode(css_str, "utf-8"))
 
-        javascript_array = ["static/libs/jquery/dist/jquery.min.js", "static/libs/material-design-lite/material.min.js", 
+        javascript_array = ["static/libs/material-design-lite/material.min.js", 
         "static/libs/recordrtc/RecordRTC.min.js", "static/libs/pdfjs/web/compatibility.js", "static/libs/pdfjs/web/l10n.js",
         "static/libs/pdfjs/build/pdf.js", "static/libs/pdfjs/build/pdf.worker.js", "static/libs/pdfjs/web/debugger.js", "static/js/KastListeners.js", "static/js/RecordWrapper.js", "static/js/ViewerWrapper.js",
         "static/js/Kast.js", "static/js/main.js"]
