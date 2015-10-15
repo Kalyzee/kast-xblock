@@ -72,7 +72,6 @@ class KastBlock(XBlock):
             css_str = pkg_resources.resource_string(__name__, element)
             frag.add_css(unicode(css_str, "utf-8"))
 
-<<<<<<< 4f55606c1fa394d715fe66a226cfdfb8b4d047b6
         frag.add_css_url("https://fonts.googleapis.com/icon?family=Material+Icons")
 
         frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/build/pdf.js")
@@ -80,16 +79,8 @@ class KastBlock(XBlock):
         frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/web/l10n.js")
         frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/web/debugger.js")
 
-
-
-        javascript_array = ["static/libs/material-design-lite/material.min.js", "static/js/KastListeners.js", "static/js/ViewerWrapper.js", "static/js/KastViewer.js", "static/js/viewer_main.js"]
-
-
-=======
-        javascript_array = ["static/libs/pdfjs/web/compatibility.js", "static/libs/pdfjs/web/l10n.js",
-        "static/libs/pdfjs/build/pdf.js", "static/js/KastListeners.js", "static/js/ViewerWrapper.js",
-        "static/js/KastViewer.js", "static/js/viewer_main.js"]
->>>>>>> debug
+        javascript_array = ["static/libs/material-design-lite/material.min.js", "static/js/KastListeners.js", "static/js/ViewerWrapper.js", "static/js/KastViewer.js",
+         "static/js/viewer_main.js"]
 
         for element in javascript_array:
             js_str = pkg_resources.resource_string(__name__, element)
