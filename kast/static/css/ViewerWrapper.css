@@ -25,5 +25,20 @@ and open the template in the editor.
     text-align: center;
     padding: 10px;
     height: 145px;
-    width: 460px;
+    width: 510px;
+}
+
+.kast-viewer-toolbar button{
+	background-color: #EEE;
+	border: 1px solid #333;
+	border-radius: 2px;
+}
+
+/* STUDENT */
+.kast video{
+	width: 240px;
+}
+
+.kast.kast-student #kast-record, .kast.kast-student #kast-browse, .kast.kast-student #kast-save{
+	display:none;
 }
