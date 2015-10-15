@@ -79,43 +79,15 @@ Create an apps directory in /edx/app/edxapp to store the Knotes app
 
 Clone the Knotes github repository in /edx/app/edxapp/my-apps
 ``` 
-git clone https://github.com/Kalyzee/knotes.git
+git clone https://github.com/Kalyzee/kast.git
 ``` 
 
 Activate the openedx venv and install Knotes
 ```
 source /edx/app/edxapp/venvs/edxapp/bin/activate
-cd knotes
+cd kast
 pip install -r requirements.txt
 ```
-
-## Database configuration / installation
-
- 
-For dev environment you have to append the following lines into /edx/app/edxapp/edx-platform/cms/envs/devstack.py and  /edx/app/edxapp/edx-platform/lms/envs/devstack.py 
-
-```python
-
-INSTALLED_APPS += ('videoknotes',)
-
-```
-
-After that it's necessary to setup the database.
-
-```
-cd /edx/app/edxapp/edx-platform
-./manage.py lms syncdb --settings=devstack
-```
-
-The first output's lines will look like that:
-
-Syncing...
-Creating tables ...
-Creating table videoknotes_knotelist
-Creating table videoknotes_knote
-Installing custom SQL ...
-Installing indexes ...
-Installed 0 object(s) from 0 fixture(s)
 
 
 Restart your edX
@@ -127,12 +99,12 @@ Restart your edX
 
 Login 
 
-To enable this Knotes into your course you have to:
+To enable Kast into your course you have to:
   - On a studio course main page go to Setting > Advanced Settings.
   
 ![](http://www.kalyzee.com/wp-content/uploads/2015/09/edx-advanced-setting-enabling-knotes.png)
 
-  - Into the advanced module part, add "videoknotes" into the array.
+  - Into the advanced module part, add "kast" into the array.
 
   
 ![](http://www.kalyzee.com/wp-content/uploads/2015/09/edx-advanced-setting-enabling-knotes-in-form.png)
@@ -141,7 +113,7 @@ To enable this Knotes into your course you have to:
 
 ![](http://www.kalyzee.com/wp-content/uploads/2015/09/edx-knotes-visual-feedback-installation.png)
 
-## Using Knotes 
+## Using Kast 
 In a unit: 
 
 ![](http://www.kalyzee.com/wp-content/uploads/2015/09/edx-knotes-usage-plugin-selection.png)
@@ -150,65 +122,10 @@ Click on the advanced button in add new component.
 
 ![](http://www.kalyzee.com/wp-content/uploads/2015/09/edx-knotes-selection-unit.png)
 
-Click on videoknotes
+Click on kast
 
 ![](http://www.kalyzee.com/wp-content/uploads/2015/09/edx-knotes-preview.png)
 
-Your Knote is fully loaded you can change your video by cliking on edit button on the top right of the previous picture.
+Your Kast is fully loaded you can change your video by cliking on edit button on the top right of the previous picture.
 
 ![](http://www.kalyzee.com/wp-content/uploads/2015/09/edx-knotes-select-video-url.png)
-
-In this version Youtube and Dailymotion are enable it's possible to develop another player components.
-
-## Developping player adapters
-
-```
-function MyPlayerAdapter(element, video){
-
-
-    var listeners = new KNotesListener(),
-        _this = this;
-
-    this.getCurrentTime = function(){
-
-    }
-
-    this.play = function(){
-
-    }
-
-    this.pause = function(){
-
-    }
-
-    this.seek = function(time){
-
-    }
-
-    this.createPlayerView = function(){
-
-    }
-
-    this.onTimeUpdate = function(callback){
-      listeners.addlisteners("onTimeUpdate", callback);
-    }
-
-    var fireTimeUpdate = function(time){
-      listeners.fireListeners("onTimeUpdate", function(callback){
-        callback(time);
-      });
-    }
-
-}
-
-
-MyPlayerAdapter.isCompatible = function(videoURL){
-  /**
-  * Must return true if the videoURL is compatible !
-  */
-}
-
-PlayerFactory.registerPlayer(MyPlayerAdapter);
-```
-
-You have to register your JS file in student_view method in videoknotes.py in javascript_array variable
