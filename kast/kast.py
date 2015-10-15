@@ -71,9 +71,12 @@ class KastBlock(XBlock):
             css_str = pkg_resources.resource_string(__name__, element)
             frag.add_css(unicode(css_str, "utf-8"))
 
-        javascript_array = ["static/libs/jquery/dist/jquery.min.js", "static/libs/material-design-lite/material.min.js", "static/libs/pdfjs/web/compatibility.js", "static/libs/pdfjs/web/l10n.js",
-        "static/libs/pdfjs/build/pdf.js", "static/js/KastListeners.js", "static/js/ViewerWrapper.js",
-        "static/js/KastViewer.js", "static/js/viewer_main.js"]
+        frag.add_css_url("https://fonts.googleapis.com/icon?family=Material+Icons")
+
+
+        javascript_array = ["static/libs/material-design-lite/material.min.js", 
+        "static/libs/pdfjs/web/compatibility.js", "static/libs/pdfjs/web/l10n.js",
+        "static/libs/pdfjs/build/pdf.js", "static/libs/pdfjs/web/debugger.js", "static/js/KastListeners.js", "static/js/ViewerWrapper.js", "static/js/KastViewer.js", "static/js/viewer_main.js"]
 
         for element in javascript_array:
             js_str = pkg_resources.resource_string(__name__, element)
@@ -83,6 +86,8 @@ class KastBlock(XBlock):
         #js_str = pkg_resources.resource_string(__name__, "static/js/videoknotes.js")
         #frag.add_javascript(unicode(js_str))
         #frag.initialize_js('VideoKNotesBlock', {"video" : self.href, "notes" : timecoded_data_array, "can_publish" : has_studio_write_access(student, self.scope_ids.usage_id.course_key)})
+
+        frag.initialize_js('KastViewerBlock', {})
 
 
         return frag
@@ -101,12 +106,15 @@ class KastBlock(XBlock):
 
         javascript_array = ["static/libs/jquery/dist/jquery.min.js", "static/libs/material-design-lite/material.min.js", 
         "static/libs/recordrtc/RecordRTC.min.js", "static/libs/pdfjs/web/compatibility.js", "static/libs/pdfjs/web/l10n.js",
-        "static/libs/pdfjs/build/pdf.js", "static/libs/pdfjs/web/debugger.js", "static/js/KastListeners.js", "static/js/RecordWrapper.js", "static/js/ViewerWrapper.js",
+        "static/libs/pdfjs/build/pdf.js", "static/libs/pdfjs/build/pdf.worker.js", "static/libs/pdfjs/web/debugger.js", "static/js/KastListeners.js", "static/js/RecordWrapper.js", "static/js/ViewerWrapper.js",
         "static/js/Kast.js", "static/js/main.js"]
 
         for element in javascript_array:
             js_str = pkg_resources.resource_string(__name__, element)
             frag.add_javascript(unicode(js_str, "utf-8"))
+
+
+        frag.initialize_js('KastEditorBlock', {})
 
 
         #js_str = pkg_resources.resource_string(__name__, "static/js/videoknotes.js")

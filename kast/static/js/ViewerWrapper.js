@@ -21,7 +21,6 @@ function ViewerWrapper() {
         var id = Math.random();
         _elm.find('canvas').attr('id', 'kast-' + id);
         options.id = 'kast-' + id;
-        
         _this.refreshToolbar();
         _this.render();
     };

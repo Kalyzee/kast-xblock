@@ -25,7 +25,11 @@
         
     
 */
-$(document).ready(function(){
+
+function KastEdtiorBlock(runtime, element, init_args) {
+
+    var _this = this;
+
 
 	var options = {
 		videoElement : $("video")[0],
@@ -50,4 +54,4 @@ $(document).ready(function(){
 		
 	});	
 
-});
+}

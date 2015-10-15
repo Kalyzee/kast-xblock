@@ -26,15 +26,15 @@
     
 */
 
-alert("ok");
-$(document).ready(function(){
-		alert("ok");
+function KastViewerBlock(runtime, element, init_args) {
+    var _this = this;
 
-        var chapters = [];
-        chapters[0] = 1;
-        chapters[5] = 2;
 
-        var viewer = new KastViewer($("video")[0], chapters);
-        viewer.init();
+    var chapters = [];
+    chapters[0] = 1;
+    chapters[5] = 2;
+    var viewer = new KastViewer($("video")[0], chapters);
+    alert("ok");
+    viewer.init();
 
-}),;
+}
