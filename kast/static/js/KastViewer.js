@@ -37,16 +37,16 @@ function KastViewer(element, chapters){
 
 
     var _reverseChapterTime = [];
-    _reverseChapterTime[1] = 0;
+    _reverseChapterTime[1] = 1;
     _reverseChapterTime[2] = 5;
     var _viewerWrapper = new ViewerWrapper(element);
-
+    var _videoElement =  element.find("video")[0];
 
     var _this = this; 
 
     this.goToPage = function(page){
         if (_reverseChapterTime[page]){
-            element.currentTime = _reverseChapterTime[page];
+            _videoElement.currentTime = _reverseChapterTime[page];
         }
     }
 
@@ -86,12 +86,12 @@ function KastViewer(element, chapters){
     this.init = function(){
         _viewerWrapper.onPageNext(_this.goToPage);
         _viewerWrapper.onPagePrev(_this.goToPage);
-        element.ontimeupdate = function(){
-            onTime(element.currentTime);
+        _videoElement.ontimeupdate = function(){
+            onTime(_videoElement.currentTime);
         };
 
-        element.onseeking = function(){
-            onSeek(element.currentTime);
+        _videoElement.onseeking = function(){
+            onSeek(_videoElement.currentTime);
         }
     }
 
