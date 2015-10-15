@@ -26,7 +26,7 @@
     
 */
 
-function KastEdtiorBlock(runtime, element, init_args) {
+function KastEditorBlock(runtime, element, init_args) {
 
     var _this = this;
 

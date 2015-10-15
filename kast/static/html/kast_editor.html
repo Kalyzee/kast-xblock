@@ -1,7 +1,14 @@
 <div class="kast">
-    <div class="kast-recorder"><video controls="" class="kast-video-player" src="{video_file}"></video></div>
-    <div class="kast-viewer">
-        <div class="kast-viewer-toolbar"></div>
-        <canvas></canvas>
-    </div>
+            <div>
+                <div class="kast-recorder"><video controls="" class="kast-video-player" muted=""></video></div>
+                <div class="kast-viewer-toolbar">
+                    <button id="kast-record" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect kast-button-record"><i class="material-icons">videocam</i></button>
+                    <button id="kast-browse" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect kast-button-browse"><i class="material-icons">attach_file</i></button>
+                    <button id="kast-save" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect kast-button-save"><i class="material-icons">save</i></button>
+                </div>
+                <div style="clear: both;">&nbsp;</div>
+            </div>
+            <div class="kast-viewer">
+                <canvas></canvas>
+            </div>
 </div>

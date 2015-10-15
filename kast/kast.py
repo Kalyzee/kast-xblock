@@ -66,12 +66,13 @@ class KastBlock(XBlock):
         
         frag = Fragment(unicode(html_str).format(self=self, video_file="http://cdn.kalyzee.com/out.webm", pdf_file="http://cdn.kalyzee.com/openedx.pdf"))
 
-        css_array = ["static/css/RecordWrapper.css", "static/css/ViewerWrapper.css","static/libs/material-design-lite/material.min.css"]
+        css_array = ["static/css/RecordWrapper.css", "static/css/ViewerWrapper.css"]
         
         for element in css_array:
             css_str = pkg_resources.resource_string(__name__, element)
             frag.add_css(unicode(css_str, "utf-8"))
 
+<<<<<<< 4f55606c1fa394d715fe66a226cfdfb8b4d047b6
         frag.add_css_url("https://fonts.googleapis.com/icon?family=Material+Icons")
 
         frag.add_javascript_url("http://cdn.kalyzee.com/pdfjs/build/pdf.js")
@@ -84,6 +85,11 @@ class KastBlock(XBlock):
         javascript_array = ["static/libs/material-design-lite/material.min.js", "static/js/KastListeners.js", "static/js/ViewerWrapper.js", "static/js/KastViewer.js", "static/js/viewer_main.js"]
 
 
+=======
+        javascript_array = ["static/libs/pdfjs/web/compatibility.js", "static/libs/pdfjs/web/l10n.js",
+        "static/libs/pdfjs/build/pdf.js", "static/js/KastListeners.js", "static/js/ViewerWrapper.js",
+        "static/js/KastViewer.js", "static/js/viewer_main.js"]
+>>>>>>> debug
 
         for element in javascript_array:
             js_str = pkg_resources.resource_string(__name__, element)
@@ -94,8 +100,6 @@ class KastBlock(XBlock):
         #frag.add_javascript(unicode(js_str))
         #frag.initialize_js('VideoKNotesBlock', {"video" : self.href, "notes" : timecoded_data_array, "can_publish" : has_studio_write_access(student, self.scope_ids.usage_id.course_key)})
 
-        frag.initialize_js('KastViewerBlock', {})
-
 
         return frag
 
@@ -105,23 +109,20 @@ class KastBlock(XBlock):
         
         frag = Fragment(unicode(html_str).format(self=self, video_file=self.video_file, pdf_file=self.pdf_file))
 
-        css_array = ["static/css/RecordWrapper.css", "static/css/ViewerWrapper.css","static/libs/material-design-lite/material.min.css"]
+        css_array = ["static/css/RecordWrapper.css", "static/css/ViewerWrapper.css"]
         
         for element in css_array:
             css_str = pkg_resources.resource_string(__name__, element)
             frag.add_css(unicode(css_str, "utf-8"))
 
-        javascript_array = ["static/libs/material-design-lite/material.min.js", 
+        javascript_array = [
         "static/libs/recordrtc/RecordRTC.min.js", "static/libs/pdfjs/web/compatibility.js", "static/libs/pdfjs/web/l10n.js",
-        "static/libs/pdfjs/build/pdf.js", "static/libs/pdfjs/build/pdf.worker.js", "static/libs/pdfjs/web/debugger.js", "static/js/KastListeners.js", "static/js/RecordWrapper.js", "static/js/ViewerWrapper.js",
+        "static/libs/pdfjs/build/pdf.js", "static/libs/pdfjs/web/debugger.js", "static/js/KastListeners.js", "static/js/RecordWrapper.js", "static/js/ViewerWrapper.js",
         "static/js/Kast.js", "static/js/main.js"]
 
         for element in javascript_array:
             js_str = pkg_resources.resource_string(__name__, element)
             frag.add_javascript(unicode(js_str, "utf-8"))
-
-
-        frag.initialize_js('KastEditorBlock', {})
 
 
         #js_str = pkg_resources.resource_string(__name__, "static/js/videoknotes.js")
