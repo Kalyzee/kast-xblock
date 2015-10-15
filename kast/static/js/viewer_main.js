@@ -25,7 +25,10 @@
         
     
 */
+
+alert("ok");
 $(document).ready(function(){
+		alert("ok");
 
         var chapters = [];
         chapters[0] = 1;
