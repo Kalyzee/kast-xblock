@@ -67,6 +67,8 @@ class KastBlock(XBlock):
 
     @XBlock.json_handler
     def studio_submit(self, data, suffix=''):
-        self.href = data.get('href')
+        self.video_file = data.get('video_file')
+        self.pdf_file = data.get('pdf_file')
+        self.data = data.get('data')
 
         return {'result': 'success'}
