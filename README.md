@@ -55,7 +55,7 @@ Guillaume LAURIE    :
 @GuillaumeLAURIE
 ```
         
-# Installation guide (Knotes install)
+# Installation guide
 
 Connect you to your VM with:
 ```
@@ -68,7 +68,7 @@ Connect you with edxapp user
 sudo su edxapp
 ```
 
-Create an apps directory in /edx/app/edxapp to store the Knotes app
+Create an apps directory in /edx/app/edxapp to store the Kast app
 - In /edx/app/edxapp with edxapp user create a directory my-apps
 
 ``` 
@@ -77,12 +77,12 @@ Create an apps directory in /edx/app/edxapp to store the Knotes app
  cd my-apps
 ```
 
-Clone the Knotes github repository in /edx/app/edxapp/my-apps
+Clone the Kast github repository in /edx/app/edxapp/my-apps
 ``` 
 git clone https://github.com/Kalyzee/kast.git
 ``` 
 
-Activate the openedx venv and install Knotes
+Activate the openedx venv and install Kast
 ```
 source /edx/app/edxapp/venvs/edxapp/bin/activate
 cd kast
