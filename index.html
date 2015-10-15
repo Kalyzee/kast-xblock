@@ -9,14 +9,23 @@
     </head>
     <body>
         <div class="kast">
-            <div class="kast-recorder"><video controls="" class="kast-video-player" muted=""></video></div>
+            <div>
+                <div class="kast-recorder"><video controls="" class="kast-video-player" muted=""></video></div>
+                <div class="kast-viewer-toolbar">
+                    <button id="kast-record" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect kast-button-record"><i class="material-icons">videocam</i></button>
+                    <div class="mdl-tooltip" for="kast-record">Record</div>
+                    <button id="kast-browse" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect kast-button-browse"><i class="material-icons">attach_file</i></button>
+                    <div class="mdl-tooltip" for="kast-browse">Browse</div>
+                    <button id="kast-save" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect kast-button-save"><i class="material-icons">save</i></button>
+                    <div class="mdl-tooltip" for="kast-save">Save</div>
+                </div>
+                <div style="clear: both;">&nbsp;</div>
+            </div>
             <div class="kast-viewer">
-                <div class="kast-viewer-toolbar"></div>
                 <canvas></canvas>
             </div>
-            <button class="kast-button-record">Start recording</button>
-            <button class="kast-button-browse">Browse</button>
-            <button class="kast-button-save">Save</button>
+            
+            
 
         </div>
         <script src="libs/jquery/dist/jquery.min.js" type="text/javascript"></script>

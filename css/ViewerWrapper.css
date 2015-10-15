@@ -9,28 +9,25 @@ and open the template in the editor.
 */
 
 body{
-
+    width: 800px !important;
+    border:1px solid black;
 }
 
-.kast .kast-recorder, .kast .kast-viewer{
+.kast{
+    background-color: #FAFAFA;
+    padding: 10px;
+}
+
+.kast .kast-recorder, .kast-viewer-toolbar{
     float:left;
 }
 
-.kast .kast-recorder video{
-
-}
-
 .kast .kast-viewer canvas{
-    width: 560px;
-    height: 744px;
+    box-sizing: border-box;
 }
 .kast-viewer-toolbar{
-    background-color: #FAFAFA;
-}
-.kast-viewer-toolbar ul {
-    list-style: none;
-    clear: both;
-}
-.kast-viewer-toolbar li{
-    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    height: 145px;
+    width: 460px;
 }
