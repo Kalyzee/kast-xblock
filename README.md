@@ -37,6 +37,7 @@ If you need help for an installation, feel free to contact our support :
 
 
 ##  Want to follow us on Twitter?
+
         Kalyzee             : 
         ```
         @Kalyzee
@@ -53,7 +54,6 @@ If you need help for an installation, feel free to contact our support :
         ```
         @GuillaumeLAURIE
         ```
-        
         
 # Installation guide (Knotes install)
 
