@@ -10,7 +10,7 @@ function ViewerWrapper() {
         num_pages       : null,
         canvas_height   : 744,
         canvas_width    : 560,
-        file            : 'fixtures/openedx.pdf'
+        file            : '../fixtures/openedx.pdf'
     };
 
     var construct = function () {
