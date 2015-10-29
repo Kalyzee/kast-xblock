@@ -19,7 +19,7 @@ Thirsty of efficient coding lines, they have done their best to produce this ama
 
 # Authors
 
-Ludovic Bougerra and Anthony Gross for the development, Guillaume LAURIE for communication.
+Ludovic Bouguerra and Anthony Gross for the development, Guillaume LAURIE for communication.
 All sponsored by the Massilia's EDTech startup Kalyzée.
 
 # Licensing
